@@ -1,6 +1,8 @@
 [project]
 name = "py_dirbuilder"
 version = "1.0.0"
+description = "Directory tree builder CLI for Python 3.8+"
+readme = "README.md"
 requires-python = ">=3.8"
 
 [tool.setuptools.packages.find]
