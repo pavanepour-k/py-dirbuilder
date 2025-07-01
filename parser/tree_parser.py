@@ -1,40 +1,47 @@
-from .base import Node, BaseParser
-from exceptions import ParseError
 from typing import List
+from dataclasses import dataclass, field
 
-class TreeParser(BaseParser):
-    """Converts a text-based tree format into a Node tree"""
+@dataclass
+class Node:
+    name: str
+    is_file: bool = False
+    children: List['Node'] = field(default_factory=list)
 
+class TreeParser:
     def parse(self, source: str) -> Node:
-        """
-        Example input:
-        root
-        ├── dir1
-        │   └── file1.txt
-        └── file2.txt
-        """
-        lines = source.splitlines()
-        if not lines:
-            raise ParseError("Input data is empty.")
+        lines = [line.rstrip() for line in source.splitlines() if line.strip()]
+        stack = []
+        root = None
 
-        root_name = lines[0].strip()
-        root = Node(name=root_name, is_file=False)
-        stack: List[(int, Node)] = [(0, root)]
+        for line in lines:
+            prefix = line.split('├', 1)[0].split('└', 1)[0]
+            indent = 0
+            i = 0
+            while i < len(prefix):
+                if prefix[i] == '│':
+                    indent += 1
+                    i += 1
+                elif prefix[i:i+4] == '    ':
+                    indent += 1
+                    i += 4
+                else:
+                    i += 1
 
-        for line in lines[1:]:
-            stripped = line.lstrip()
-            if not stripped:
-                continue
-            indent = len(line) - len(stripped)
-            is_file = '.' in stripped  # Simple check for file
-            name = stripped.lstrip('├─│ ').rstrip()
+            name = line
+            for token in ['├── ', '└── ', '│   ', '    ']:
+                name = name.replace(token, '')
+            name = name.strip()
+            is_file = '.' in name
+
             node = Node(name=name, is_file=is_file)
 
-            # Find position in hierarchy
-            while stack and indent <= stack[-1][0]:
-                stack.pop()
-            if stack:
-                stack[-1][1].add_child(node)
-            stack.append((indent, node))
+            if indent == 0:
+                root = node
+                stack = [root]
+            else:
+                stack = stack[:indent]
+                parent = stack[-1]
+                parent.children.append(node)
+                stack.append(node)
 
         return root
