@@ -1,6 +1,6 @@
 from pathlib import Path
-from utils.path import is_valid_path, to_absolute, is_subpath
-from utils.file import ensure_dir, file_exists
+from py_dirbuilder.utils.path import is_valid_path, to_absolute, is_subpath
+from py_dirbuilder.utils.file import ensure_dir, file_exists
 
 def test_is_valid_path():
     assert is_valid_path('abc')

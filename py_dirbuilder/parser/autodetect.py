@@ -1,5 +1,5 @@
-from .tree_parser import TreeParser
-from .markdown_parser import MarkdownParser
+from py_dirbuilder.parser.tree_parser import TreeParser
+from py_dirbuilder.parser.markdown_parser import MarkdownParser
 
 class AutoDetectParser:
     def parse(self, source: str):

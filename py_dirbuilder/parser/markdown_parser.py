@@ -1,5 +1,5 @@
-from .base import Node, BaseParser
-from exceptions import ParseError
+from py_dirbuilder.parser.base import Node, BaseParser
+from py_dirbuilder.exceptions import ParseError
 from typing import List
 
 class MarkdownParser(BaseParser):

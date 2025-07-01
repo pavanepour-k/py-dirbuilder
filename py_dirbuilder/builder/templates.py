@@ -1,7 +1,6 @@
 import os
 import shutil
 
-# 내장 템플릿 파일 목록 (예: README, .gitignore 등)
 TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), "builtin_templates")
 
 def list_templates():

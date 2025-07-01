@@ -1,9 +1,9 @@
-from cli.menu import show_main_menu
-from cli.input_ui import select_structure_file, select_target_dir, confirm
-from builder.templates import select_templates
-from builder.builder import build_dir
-from parser.autodetect import AutoDetectParser
-from display.tree import print_tree
+from py_dirbuilder.cli.menu import show_main_menu
+from py_dirbuilder.cli.input_ui import select_structure_file, select_target_dir, confirm
+from py_dirbuilder.builder.templates import select_templates
+from py_dirbuilder.builder.builder import build_dir
+from py_dirbuilder.parser.autodetect import AutoDetectParser
+from py_dirbuilder.display.tree import print_tree
 
 def main():
     selected_templates = []

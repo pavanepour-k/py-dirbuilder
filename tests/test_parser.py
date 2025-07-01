@@ -1,7 +1,7 @@
 import pytest
-from parser.tree_parser import TreeParser
-from parser.markdown_parser import MarkdownParser
-from parser.autodetect import AutoDetectParser
+from py_dirbuilder.parser.tree_parser import TreeParser
+from py_dirbuilder.parser.markdown_parser import MarkdownParser
+from py_dirbuilder.parser.autodetect import AutoDetectParser
 
 def test_tree_parser():
     source = """root
