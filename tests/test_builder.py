@@ -1,7 +1,5 @@
-import os
-import shutil
 from py_dirbuilder.builder.builder import build_dir
-from py_dirbuilder.parser.tree_parser import Node
+from py_dirbuilder.models import Node
 
 def test_build_dir(tmp_path):
     root = Node(name="testroot", is_file=False, children=[

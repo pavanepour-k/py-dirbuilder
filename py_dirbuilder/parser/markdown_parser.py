@@ -1,4 +1,5 @@
-from py_dirbuilder.parser.base import Node, BaseParser
+from py_dirbuilder.models import Node
+from py_dirbuilder.parser.base import BaseParser
 from py_dirbuilder.exceptions import ParseError
 from typing import List
 
