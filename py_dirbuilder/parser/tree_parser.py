@@ -1,4 +1,3 @@
-from typing import List
 from py_dirbuilder.models import Node
 
 class TreeParser:
