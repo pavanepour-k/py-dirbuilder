@@ -1,11 +1,5 @@
 from typing import List
-from dataclasses import dataclass, field
-
-@dataclass
-class Node:
-    name: str
-    is_file: bool = False
-    children: List['Node'] = field(default_factory=list)
+from py_dirbuilder.models import Node
 
 class TreeParser:
     def parse(self, source: str) -> Node:

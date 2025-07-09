@@ -2,7 +2,7 @@ def show_main_menu():
     print("\npy-dirbuilder")
     print("-" * 30)
     print("1. Structure File → Directory/File Creation")
-    print("2. Additional Options (Template/Default File")
+    print("2. Additional Options (Template/Default Files)")
     print("3. Shutdown")
     while True:
         choice = input("Please select a number: ").strip()
